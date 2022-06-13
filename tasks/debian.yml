@@ -4,7 +4,7 @@
   register: reboot_required_file
   stat:
     path: "/var/run/reboot-required"
-    get_md5: no
+    get_md5: false
   tags: ['rebootcheck', 'reboot', 'never']
 
 - name: display if a restart of the machine is required
@@ -23,4 +23,3 @@
     test_command: uptime
   when: reboot_required_file.stat.exists
   tags: ['reboot', 'never']
-
