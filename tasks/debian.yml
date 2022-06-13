@@ -1,14 +1,14 @@
 ---
 
 - name: check if a reboot is required
-  register: reboot_required_file
+  ansible.builtin.register: reboot_required_file
   stat:
     path: "/var/run/reboot-required"
     get_md5: false
   tags: ['rebootcheck', 'reboot', 'never']
 
 - name: display if a restart of the machine is required
-  debug:
+  ansible.builtin.debug:
     msg: "{{ ansible_hostname }} needs to be rebooted!"
   when: reboot_required_file.stat.exists
   tags: ['rebootcheck', 'reboot', 'never']
