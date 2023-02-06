@@ -5,13 +5,13 @@
     path: "/var/run/reboot-required"
     get_md5: false
   register: reboot_required_file
-  tags: ['rebootcheck', 'reboot', 'never']
+  tags: ['rebootcheck', 'reboot']
 
 - name: Display if a restart of the machine is required
   ansible.builtin.debug:
     msg: "{{ ansible_hostname }} needs to be rebooted!"
   when: reboot_required_file.stat.exists
-  tags: ['rebootcheck', 'reboot', 'never']
+  tags: ['rebootcheck', 'reboot']
 
 - name: Reboot the Debian or Ubuntu server
   ansible.builtin.reboot:
@@ -22,4 +22,4 @@
     post_reboot_delay: 30
     test_command: uptime
   when: reboot_required_file.stat.exists
-  tags: ['reboot', 'never']
+  tags: ['reboot']
