@@ -1,2 +1,5 @@
 ---
 # defaults file for role-rebootcheck
+
+rebootcheck_pushover_userkey:
+rebootcheck_pushover_appkey:
