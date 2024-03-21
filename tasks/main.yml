@@ -1,5 +1,4 @@
 ---
 
-- name: Import debian.yml for debian and ubuntu based systems
-  ansible.builtin.import_tasks: debian.yml
-  when: ansible_distribution|lower == "debian" or ansible_distribution|lower == "ubuntu"
+- name: Import Debian.yml for debian based systems
+  ansible.builtin.import_tasks: "{{ ansible_os_family }}.yml"
