@@ -35,3 +35,5 @@
     test_command: uptime
   when: reboot_required_file.stat.exists
   tags: ["reboot"]
+  become: true
+  become_user: root
