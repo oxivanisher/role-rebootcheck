@@ -24,8 +24,8 @@
   no_log: false
   when:
     - reboot_required_file.stat.exists
-    - rebootcheck_pushover_userkey | length > 0
-    - rebootcheck_pushover_appkey | length > 0
+    - rebootcheck_pushover_userkey | default("") | length > 0
+    - rebootcheck_pushover_appkey | default("") | length > 0
   tags: ["reboot"]
 
 - name: Reboot the Debian or Ubuntu server
