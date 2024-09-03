@@ -22,6 +22,7 @@
       token: "{{ rebootcheck_pushover_appkey }}"
       message: "{{ ansible_hostname }} will be rebooted!"
   no_log: false
+  failed_when: false
   when:
     - reboot_required_file.stat.exists
     - rebootcheck_pushover_userkey | default('', true) | length > 0
