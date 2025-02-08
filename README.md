@@ -1,5 +1,6 @@
 rebootckeck
 ===========
+[![Ansible Lint](https://github.com/oxivanisher/role-rebootcheck/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/oxivanisher/role-rebootcheck/actions/workflows/ansible-lint.yml)
 
 Checks if a reboot is required and if requested, also reboots the system.
 The behavior can be controlled with the tags:
