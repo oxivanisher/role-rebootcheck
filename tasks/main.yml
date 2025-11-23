@@ -3,4 +3,4 @@
 - name: Import Debian.yml for debian based systems
   ansible.builtin.import_tasks: "Debian.yml"
   when:
-    - ansible_os_family == "Debian"
+    - ansible_facts.os_family == "Debian"

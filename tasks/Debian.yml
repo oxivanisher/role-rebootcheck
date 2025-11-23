@@ -7,7 +7,7 @@
 
 - name: Display if a restart of the machine is required
   ansible.builtin.debug:
-    msg: "{{ ansible_hostname }} needs to be rebooted!"
+    msg: "{{ ansible_facts.hostname }} needs to be rebooted!"
   when: reboot_required_file.stat.exists
   tags: ["rebootcheck", "reboot"]
 
@@ -20,7 +20,7 @@
     body:
       user: "{{ rebootcheck_pushover_userkey }}"
       token: "{{ rebootcheck_pushover_appkey }}"
-      message: "{{ ansible_hostname }} will be rebooted!"
+      message: "{{ ansible_facts.hostname }} will be rebooted!"
   no_log: false
   failed_when: false
   when:
